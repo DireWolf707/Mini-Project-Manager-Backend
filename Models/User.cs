@@ -7,5 +7,7 @@ namespace Mini_Project_Manager.Models
     {
         [Required]
         public string Name { get; set; } = null!;
+
+        public List<Project> Projects { get; set; } = [];
     }
 }
