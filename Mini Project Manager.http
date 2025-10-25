@@ -1,0 +1,6 @@
+@Mini_Project_Manager_HostAddress = http://localhost:5156
+
+GET {{Mini_Project_Manager_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
