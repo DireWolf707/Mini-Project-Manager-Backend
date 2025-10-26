@@ -44,12 +44,21 @@ namespace Mini_Project_Manager.Controllers
             var userId = GetUserId();
             var project = await db.Projects
                 .Where(p => p.Id == id && p.UserId == userId)
+                .Include(p => p.Tasks)
                 .Select(p => new ProjectDTO
                 {
                     Id = p.Id,
                     Title = p.Title,
                     Description = p.Description,
                     CreationDate = p.CreationDate,
+                    Tasks = p.Tasks.Select(t => new ProjectTaskDTO
+                    {
+                        Id = t.Id,
+                        Title = t.Title,
+                        DueDate = t.DueDate,
+                        IsCompleted = t.IsCompleted,
+                        ProjectId = t.ProjectId
+                    }).ToList()
                 })
                 .FirstOrDefaultAsync();
 

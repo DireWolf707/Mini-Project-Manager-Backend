@@ -18,5 +18,6 @@ namespace Mini_Project_Manager.DTOs
         public string Title { get; set; } = null!;
         public string? Description { get; set; }
         public DateTime CreationDate { get; set; }
+        public List<ProjectTaskDTO> Tasks { get; set; } = new List<ProjectTaskDTO>();
     }
 }
