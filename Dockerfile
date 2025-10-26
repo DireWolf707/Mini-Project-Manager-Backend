@@ -7,7 +7,7 @@ WORKDIR /src
 COPY . .
 
 # Publish the application. This command also runs 'dotnet restore'
-RUN dotnet publish "Basic Task Manager.csproj" -c Release -o /app/publish
+RUN dotnet publish "Mini Project Manager.csproj" -c Release -o /app/publish
 
 # Stage 2: Create the final runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
