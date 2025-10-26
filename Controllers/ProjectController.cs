@@ -89,12 +89,15 @@ namespace Mini_Project_Manager.Controllers
         public async Task<IActionResult> DeleteProject(int id)
         {
             var userId = GetUserId();
-            var rowsAffected = await db.Projects
-                    .Where(p => p.Id == id && p.UserId == userId)
-                    .ExecuteDeleteAsync();
 
-            if (rowsAffected == 0)
+            var project = await db.Projects
+                .FirstOrDefaultAsync(p => p.Id == id && p.UserId == userId);
+
+            if (project == null)
                 return NotFound();
+
+            db.Projects.Remove(project);
+            await db.SaveChangesAsync();
 
             return NoContent();
         }
