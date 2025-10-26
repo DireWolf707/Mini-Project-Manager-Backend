@@ -16,4 +16,4 @@ WORKDIR /app
 # Copy the published output from the 'build' stage
 COPY --from=build /app/publish .
 
-ENTRYPOINT ["dotnet", "Basic Task Manager.dll", "--urls", "http://0.0.0.0:${PORT}"]
+ENTRYPOINT ["dotnet", "Mini Project Manager.dll", "--urls", "http://0.0.0.0:${PORT}"]
